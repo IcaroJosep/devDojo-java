@@ -1,0 +1,92 @@
+//////////////////////pronpt
+Throwable : é "pai de tudo q da arrado no programa" categoria
+q aborda erros e excecoes
+
+erro: ?
+
+execao: com tem basicamente dois tipos execoes de entrada e saida q 
+basicamente vem de fora do programa e podem ser tratadas ,
+e RuntimeExecepition que sao erros na logica do programa 
+como ponteiros nullos , index inesistentes etc..
+q nao podem ser tratados e exigem uma re-progrmacao .
+
+/////////////////////////////chat
+
+Analisando suas afirmações e conceitos sobre exceções em Java
+Sua compreensão sobre a hierarquia de exceções em Java está no
+caminho certo! Vamos aprofundar um pouco mais cada conceito e 
+fornecer uma interpretação mais completa:
+
+Throwable: A Raiz de Todos os Males (quase!)
+Throwable é a classe base para todas as classes que representam erros e exceções em Java.
+É como um ancestral comum a todos os problemas que podem surgir durante a execução
+de um programa.
+Por que "quase"? Existem algumas classes que representam situações mais sérias, como
+erros de sistema operacional (OutOfMemoryError), que não se encaixam perfeitamente nessa
+hierarquia, mas ainda assim estendem Throwable.
+
+Erros (Errors)
+Erros representam problemas graves que geralmente indicam um bug no próprio ambiente
+de execução da JVM (Java Virtual Machine) ou no hardware.
+Exemplos: OutOfMemoryError (falta de memória), StackOverflowError (pilha de chamadas estourada),
+LinkageError (problemas de carregamento de classes).
+Tratamento: Geralmente, não é possível ou recomendado tentar tratar erros.
+Eles indicam problemas sérios que podem comprometer a estabilidade do programa.
+
+Exceções (Exceptions)
+Exceções representam eventos inesperados que ocorrem durante a execução de um programa
+e que podem ser tratados.
+	Divididas em:
+		Checked Exceptions:
+	São as exceções que o compilador obriga você a tratar (usando try-catch ou declarando-as
+	na assinatura do método). Geralmente, representam problemas que podem ser previstos e tratados,
+	como IOExceptions (erros de entrada/saída) e SQLExceptions (erros de banco de dados).
+		Unchecked Exceptions:
+	(RuntimeExceptions): São as exceções que não precisam ser obrigatoriamente tratadas.
+	Geralmente, representam erros de programação, como NullPointerException(tentativa de usar um
+	objeto nulo),ArrayIndexOutOfBoundsException (acesso a um índice inválido de um array), etc.
+
+
+
+
+Interpretação e Simplificação:
+
+	Throwable:
+É o guarda-chuva que abriga todos os problemas que podem acontecer em seu programa.
+	Erro:
+É um problema tão grave que você provavelmente não pode fazer nada para resolver no seu código.
+É como um terremoto que destrói sua casa.
+	Exceção:////////
+É um problema que pode ser tratado, como um incêndio que você pode apagar com um extintor.
+////////////Checked Exception:
+	É um incêndio que você sabe que pode acontecer (por exemplo, tentando abrir um arquivo
+	que não existe), então você se prepara com um extintor (try-catch).
+			Unchecked Exception:
+	É um incêndio que você não esperava (por exemplo, dividindo um número por zero),
+	mas você ainda pode tentar apagar (se você tiver um extintor por perto).
+	Em resumo:
+
+
+
+
+
+Throwable: A classe base para todos os problemas.
+
+Erro: Problemas graves, geralmente fatais.
+
+Exceção: Problemas que podem ser tratados.
+	Checked: Devem ser tratadas.
+	Unchecked: Não precisam ser tratadas (mas é recomendado).
+
+
+Sua afirmação sobre exceções de entrada e saída está correta. Elas são geralmente
+checked exceptions e representam problemas que podem ocorrer ao interagir com 
+dispositivos externos,como arquivos ou redes.
+
+Quanto às RuntimeExceptions, sua afirmação também está correta.
+Elas são unchecked exceptions e representam erros de programação que geralmente 
+indicam um problema no seu código.
+
+Importante: Embora as RuntimeExceptions não precisem ser tratadas,
+é altamente recomendável que você as trate para evitar que seu programa falhe de forma 
+inesperada.
