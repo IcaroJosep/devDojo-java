@@ -16,6 +16,7 @@ public class Main {
 			System.out.println(a[2]);
 		} catch (Exception e) {
 			System.out.println("local fora do array");
+			e.printStackTrace();
 		}
 
 															System.out.println("\n\n////////////////////exception/////////////////\n");
@@ -50,7 +51,7 @@ public class Main {
 		/*com fluxo normal a a criacao do diretorio dente da pasta 095.Execoes*/
 		
 		File diretorio = new File("meu_novo_diretorio"); // Nome do diretório
-		
+						
         try {
             if (diretorio.mkdirs()) {
                 System.out.println("Diretório criado com sucesso!");
