@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//leia o arquivo contido na 095.execoes
 
 public class Main {
 
