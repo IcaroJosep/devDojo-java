@@ -8,6 +8,7 @@ import java.io.IOException;
  *automaticamente um bloco finally que chama o método close() desse 
  *recurso.*/
 
+//classes com este recurso
 /*para criar uma clase q aceite o feçamento automatico pelo try
  *é nesesario q ela tenha a interface Closeable ou AutoCloseable,
  *ao inplementar a inteface cria a nesesidade de inplemtar um metodo 
@@ -27,8 +28,10 @@ public class Main {
 	/*com recursos 
 	 *ele feiça o fluxo automaticamente apos a execuçao do try
 	 *OBS: ele faz o feixamento em ordem reversa a abertura por
+	 *
 	 *exemplo o usuario liga o combutador e se conecta  no site e o site se conecta ao banco de dados
 	 *ofechamento ocorrera na ordem reverssa desconectara do banco depos do site e por fim do pc*/
+	
 	public static void lerArqCRecuso(String arq) {
 		/*O BufferedReader é criado.
 		*O bloco try é executado.	
