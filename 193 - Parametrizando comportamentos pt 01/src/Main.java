@@ -24,7 +24,7 @@ System.out.println("\n=====================================================");
 /*metodo de impreçao*////////////////////////////////////////////////////////////////////////////////////////
 	private static void inp (List<Car> cars ) {
 		for(Car car:cars) {
-			System.out.printf("nome : %s  cor: %s ano: %s",car.getNome(),car.getColor(),car.getYear() );
+			System.out.printf("\nnome : %s  cor: %s ano: %s",car.getNome(),car.getColor(),car.getYear() );
 		}
 	}
 	

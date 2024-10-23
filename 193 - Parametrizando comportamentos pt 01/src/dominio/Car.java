@@ -30,11 +30,6 @@ public class Car {
 		return year;
 	}
 
-	@Override
-	public String toString() {
-		
-		   return String.format("Nome: %s, Cor: %s, Ano: %d", nome,color, year);
-	}
 	
 	
 	

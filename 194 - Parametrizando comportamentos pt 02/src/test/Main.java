@@ -22,14 +22,16 @@ public class Main {
 		
 		});
 		
-		System.out.println(carscolor.toString());
+		System.out.println(carscolor.toString());//toString foi sobrescrito na classe
+		/*outros tipos de impreçao para list*/
+		System.out.println(carscolor.get(0).nome);
 		
-	
-	
+		for (Car car : carscolor) {
+		    System.out.println(car.getNome());
+		}
 	
 	
 	}
-	
 
 	//filtra
 	private static List<Car> filter(List<Car> cars,CarPredicate carPreticate){

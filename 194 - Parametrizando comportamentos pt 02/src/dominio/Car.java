@@ -1,7 +1,7 @@
 package dominio;
 
 public class Car {
-	private String nome = "Audi";
+	public String nome = "Audi";
 	private String color ;
 	private int year ;
 	
@@ -34,6 +34,11 @@ public class Car {
 		this.year = year;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Car{"+
+				"name="+nome+"color="+color+"ano="+year;
+	}
 	
 }
