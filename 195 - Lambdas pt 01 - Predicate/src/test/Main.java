@@ -1,6 +1,5 @@
 package test;
 
-import java.util.function.Function;
 
 /*
  * para as lambidas funcionarem elas nessecitao q a
