@@ -24,11 +24,11 @@ public class Main {
 		
 		/*com stream*/
 		List<String> titles = lightNovals.stream()
-			.sorted(Comparator.comparing(LightNoval::getTitle))
-			.filter(ln->ln.getPrice()<=4)
-			.limit(3)
-			.map(LightNoval::getTitle)
-			.collect(Collectors.toList());
+			.sorted(Comparator.comparing(LightNoval::getTitle))//acao intermediaria
+			.filter(ln->ln.getPrice()<=4)//acao intermediaria
+			.limit(3)//acao intermediaria
+			.map(LightNoval::getTitle)//acao intermediaria
+			.collect(Collectors.toList());//acao final
 		
 		System.out.println(titles);
 		
