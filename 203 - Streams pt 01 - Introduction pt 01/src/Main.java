@@ -3,11 +3,11 @@ import java.util.Comparator;
 import java.util.List;
 
 import dominio.LightNoval;
-
+		
 public class Main {
 //1.odenar lightnovas por titulo
 //2.tragas os 3 primeiros com valor menor q 4
-	
+		
 	private static List<LightNoval> lightNoval =new ArrayList<>(List.of(
 			new LightNoval("tensei shittara",8.99),
 			new LightNoval("OverLord", 3.99),
@@ -17,7 +17,7 @@ public class Main {
 			new LightNoval("Kumo desuga", 1.99),
 			new LightNoval("Monogatari", 5.99)
 					));
-	
+		
 	public static void main(String[] args) {
 /*sem Streams*/
 		lightNoval.sort(Comparator.comparing(LightNoval::getTitle));
@@ -27,11 +27,10 @@ public class Main {
 			if(a.getPrice()<=4) {
 				System.out.println(a.getTitle());
 			}
-		}
-	
-	}
-
-}
+		}		
+		
+	}	
+}		
 /*Em Java, streams representam uma abstração para sequências de dados. Ao invés de manipular 
 elementos individualmente em uma coleção, os streams permitem que você aplique operações de forma 
 declarativa e funcional a esses elementos. É como criar uma "tubulação" onde os dados fluem e são 
@@ -68,8 +67,7 @@ import java.util.List;
 
 public class StreamExample {
     public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4,   
- 5);
+        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5));
 
         // Encontrar a soma dos números pares
         int sumOfEvenNumbers = numbers.stream()
