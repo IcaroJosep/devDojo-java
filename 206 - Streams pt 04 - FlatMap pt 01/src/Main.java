@@ -57,13 +57,19 @@ public class Main {
 		 * com utilizaçao de stream*/	
 		List<String> novaLista=devdojo.stream()
 									  .flatMap(l->l.stream())
-									  .collect(Collectors.toList());//finalizador coleta uma lista
-									   //inprime
-									   //.forEach(System.out::println);
-			 	
+									  .collect(Collectors.toList());//finalizador coleta uma lista							  
+		/*l -> l.stream(): 
+		 * Para cada elemento l da lista original (que é outra lista), transforma esse
+		 * elemento em um novo Stream. Ou seja, cada lista dentro de devdojo se torna um 
+		 * Stream individual.
+		  flatMap: 
+		  Junta todos esses Streams individuais em um único Stream, 
+		  "achatando" a estrutura. Em vez de termos uma lista de listas, temos uma única 
+		  lista com todos os elementos.
+		*/
+		
 		novaLista.forEach(nome->System.out.println(nome));
-		
-		
+	
 	}
 }
 
