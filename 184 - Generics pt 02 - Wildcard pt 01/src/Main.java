@@ -13,8 +13,8 @@ public class Main {
 		
 		List<Cachorro> cachorro = List.of(new Cachorro(),new Cachorro());
 		List<Gato> cats = List.of(new Gato(),new Gato());		
-		
-//	qunado pasado por parametro	 uma lista tem de ser do tipo especificado 
+System.out.println("=========================================================");		
+//	quanado pasado por parametro	 uma lista tem de ser do tipo especificado 
 //  neste caso seria nescessario q fosse do tipo Animal		
 	
 	  //printList(cachorro);
