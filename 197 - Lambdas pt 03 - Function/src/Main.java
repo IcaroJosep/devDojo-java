@@ -5,7 +5,7 @@ import java.util.function.Function;
 public class Main {
 
 	public static void main(String[] args) {
-		List<String> strings=List.of("icaro","josep");
+		List<String> strings=List.of("icaro","josepe");
 /*com lambda*/
 		List<Integer> inteiros = map(strings, (String s)->s.length());
 		
