@@ -6,7 +6,8 @@ public class Main {
  * tenta evitar o nullPointExeption
  * */
 	public static void main(String[] args) {
-		Optional<String> o1 = Optional.ofNullable("icaro");
+		/*cria optinal*/      /*retorna um opt q pode ou nao ser nulo(chamda do metodo)*/
+		Optional<String> o1 = Optional.ofNullable(findName("icaro"));
 		System.out.println(o1);
 		
 		
@@ -15,11 +16,15 @@ public class Main {
 		
 		
 	}
+	
+	/*metodo recebe uma string e ve se ela esta na lista 
+	 * se estiver retorna ele se nao retorna null*/
 	private static String findName (String name) {
 		List<String> list = List.of("icaro","josep");
-		int i =list.indexOf(name);
-		if(i<0) {
-			return list.get(i);
+		/*se lista comter "name"*/
+		if(list.contains(name)) {
+			int i =list.indexOf(name);//retorna index onde esta o "nome"
+			return list.get(i);//retorna nome
 		}
 		return null;
 	}
@@ -86,7 +91,7 @@ Achatando Optional dentro de Optional:
 
 Optional<Optional<String>> nested = Optional.of(Optional.of("Hello"));
 Optional<String> flattened = nested.flatMap(Optional::get);
-Use o código com cuidado.
+
 
 Exemplo Completo:
 
