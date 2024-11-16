@@ -31,8 +31,9 @@ public class LightNoval {
 		if (title == null) {
 			if (other.title != null)
 				return false;
-		} else if (!title.equals(other.title))
+		} else if (!title.equals(other.title)) {
 			return false;
+			}
 		return true;
 	}
 
