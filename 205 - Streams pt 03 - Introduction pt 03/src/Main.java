@@ -47,13 +47,15 @@ public class Main {
 		
 		
 //////////////////////////////////////////////////////////////////		
-		
+	
 		/*.distinct()
 		 * faz a retirada de de ites duplicados
 		 * o fato de aqui estarmos tratando de objts criados
 		 * faz nescesario a sobre escrita dos metodos equals() e hashCode() 
 		 * na class para q posamos atribuir oq é comsiderado igual.
 		 * Caso comtrario ele compararia a referencia de memoria */
+						
+								/*retorna um array de objs sem os ites dupricados*/
 	/*	for (Object a :lightNovals.stream().distinct().toArray()) {
 			System.out.println(a);
 		}
