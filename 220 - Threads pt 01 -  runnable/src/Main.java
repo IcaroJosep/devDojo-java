@@ -10,48 +10,51 @@ Flexibilidade		|Menos flexível, pois limita a 					|Mais flexível, permitindo a 
 Uso					|Ideal quando você precisa de um novo tipo de 	|Ideal quando você precisa definir uma tarefa que pode ser executada por 
 					|thread com comportamentos personalizados.		|várias threads ou por outros mecanismos de execução	
  */
-
 public class Main {
 	public static void main(String[] args) {
-		ThreadExemple t1= new ThreadExemple('a');
-		ThreadExemple t2= new ThreadExemple('b');
-		ThreadExemple t3= new ThreadExemple('c');
-		ThreadExemple t4= new ThreadExemple('d');
+	/*	Thread t1 = new Thread(new threadsExampleRunnable('a'));
+		Thread t2 = new Thread(new threadsExampleRunnable('b'));
+		Thread t3 = new Thread(new threadsExampleRunnable('c'));
+		Thread t4 = new Thread(new threadsExampleRunnable('d'));
 		
-	/*	t1.run();
-		t2.run();
-		t3.run();
-		t4.run();
-	*/	
 		t1.start();
 		t2.start();
 		t3.start();
 		t4.start();
+	*/	
 		
+		
+/*exeplo 2 :chamando entreds diferentes a mesma tarefa*/
+		MinhaTarefa tarefa = new MinhaTarefa();
+		Thread t = new Thread(tarefa);
+		t.start();
 		
 	}
-
 }
 
-
-
-class ThreadExemple extends Thread{
-	public char c;
+class threadsExampleRunnable implements Runnable{
+	private char c;
 	
-	public ThreadExemple(char c) {
+	public threadsExampleRunnable(char c) {
 		this.c=c;
 	}
 	
 	@Override
 	public void run() {
-		System.out.println(Thread.currentThread().getName());
+		System.out.printf("Start thread :%s ,%s\n",c,Thread.currentThread().getName());
 		for (int i = 0; i < 400; i++) {
-			System.out.print(c);System.out.println(i);
+			System.out.printf("%s %d\n",c,i);
 			if (i%100==0) {
-				System.out.println("=====================================");
+				System.out.println("==========================");
 			}
 		}
-		super.run();
+		
 	}
-	
+}
+
+/*exeplo 2 :chamando entreds diferentes a mesma tarefa*/
+class MinhaTarefa implements Runnable {
+    public void run() {
+        System.out.println("MinhaTarefa está rodando");
+    }
 }
