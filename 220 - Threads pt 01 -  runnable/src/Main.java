@@ -26,9 +26,9 @@ public class Main {
 		
 /*exeplo 2 :chamando entreds diferentes a mesma tarefa*/
 		MinhaTarefa tarefa = new MinhaTarefa();
-		Thread t = new Thread(tarefa);
-		t.start();
-		
+		/*Thread t = new Thread(tarefa);
+		t.start();*/
+		new Thread(tarefa).start();
 	}
 }
 
@@ -58,3 +58,21 @@ class MinhaTarefa implements Runnable {
         System.out.println("MinhaTarefa está rodando");
     }
 }
+
+
+
+
+/*opcao de inplementaçao de treds com lambdas :
+	new Thread(()->{
+		for (int i = 0; i < 20; i++) {
+			System.out.println("teu cu");
+		}
+	}).start();	
+
+
+	Runnable ex=()->{for (int i = 0; i < 20 ; i++) {
+			System.out.println("icaro");
+		}};
+		
+	new Thread(ex).start();
+*/
