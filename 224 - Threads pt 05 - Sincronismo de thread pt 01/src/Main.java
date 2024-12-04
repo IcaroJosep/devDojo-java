@@ -12,7 +12,7 @@ public class Main {
 	
 		Runnable r =()->{
 			for (int i = 0; i < 6; i++) {
-				saque(10);
+				saque(50);
 			}
 			
 		};
@@ -29,9 +29,8 @@ public class Main {
 		
 		
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
