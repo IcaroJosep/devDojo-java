@@ -16,7 +16,7 @@ public class EmailsDeliveryServices implements Runnable {
 			try {
 				String email = menbros.recuperaEmail();
 				System.out.println(Thread.currentThread().getName()+" enviando email para "+email);
-				Thread.sleep(2000);
+				Thread.sleep(200);
 				System.out.println(Thread.currentThread().getName()+" enviou email com sucesso para "+email);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

@@ -20,8 +20,7 @@ public class Menbros {
 		synchronized (emails) {
 			this.emails.add(email);
 			System.out.printf("%s adicionou emeil a lista\n",Thread.currentThread().getName());			
-			//tudo volta quando a tread estiver esperando
-			this.emails.notifyAll();
+			this.emails.notifyAll(); //envia sinal para comtinuar
 		}
 	}
 	
@@ -32,7 +31,7 @@ public class Menbros {
 				if(!open) {
 					break;
 				}
-			 	this.emails.wait();
+			 	this.emails.wait();//espera ate receber o sinal
 			}
 			return this.emails.poll();
 		}
