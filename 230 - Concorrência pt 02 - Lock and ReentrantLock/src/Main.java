@@ -1,3 +1,10 @@
+/*Lock é uma interface
+ *reentantLock é uma clase q inplementa a interface
+ *eles propciao a posibilidade de trabalhar com o lock manualmente
+ *ou seja aulmentam a flexibilidade, porem tbm aumentao a complexidade
+ * 
+ * */
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -35,7 +42,7 @@ public class Main {
   
 	
 	public static void main(String[] args) {
-		ReentrantLock lock= new ReentrantLock();
+		ReentrantLock lock= new ReentrantLock();/*se reentrantLock(true) sera passado o lock para a tread q estiver esperando a mais tempo*/
 		new Thread (new Worker("A", lock)).start();
 		new Thread (new Worker("B", lock)).start();
 		new Thread (new Worker("C", lock)).start();
