@@ -78,17 +78,18 @@ public class Main {
 		};
 		
 		Thread t1 = new Thread(write);
-		try {
+		
+		Thread t2 = new Thread(reader);
+		Thread t3 = new Thread(reader);
+		
+		t1.start();
+	/*	try {
 			t1.join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Thread t2 = new Thread(reader);
-		Thread t3 = new Thread(reader);
-		
-		t1.start();
-		t2.start();
+	*/	t2.start();
 		t3.start();
 		
 		
