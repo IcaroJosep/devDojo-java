@@ -1,3 +1,4 @@
+import java.awt.desktop.ScreenSleepEvent;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -48,7 +49,8 @@ public class Main {
 		
 		try {
 			try {
-				Double dolar=dollarRefresh.get(10,TimeUnit.SECONDS);
+				//Double dolar=dollarRefresh.get(10,TimeUnit.SECONDS);
+				System.out.println(dollarRefresh.get(10,TimeUnit.SECONDS));
 			} catch (TimeoutException e) {
 				System.out.println("tempo exedido");
 				e.printStackTrace();
@@ -70,6 +72,7 @@ public class Main {
 			for(int i =0;i<1_000_000;i++) {
 				sum+=i;
 			}
+			
 			return sum;
 		}
 
