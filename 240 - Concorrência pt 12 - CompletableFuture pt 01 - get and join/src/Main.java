@@ -2,6 +2,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import services.*;
+/*nessta aula a um exemplo de usso de future 
+ * e  uma leve introduçao falada durante a aula soble completablefuture
+ * esta supramencionada sera estendida sobre a proxima aula*/
+
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,7 +16,7 @@ public class Main {
 
 	}
 	
-	private static void searchPricesSync(StoreServices storeServices) {
+/*	private static void searchPricesSync(StoreServices storeServices) {
 		long start =System.currentTimeMillis();
 		System.out.println(storeServices.getPriceSync("carrefur"));
 		System.out.println(storeServices.getPriceSync("americanas"));
@@ -21,6 +26,7 @@ public class Main {
 		System.out.printf("time passed to search %d",(end-start)/180);
 		
 	}
+*/
 	private static void searchPricesAsyncFuture(StoreServices storeServices) {
 		long start =System.currentTimeMillis();
 		Future<Double> priceAsincFuture1 = storeServices.getPriceAsyncFuture("carrefur");
@@ -45,7 +51,7 @@ public class Main {
 		
 		long end =System.currentTimeMillis();
 		System.out.printf("time passed to search %d",(end-start)/180);
-		storeServices.shotdow();
+		StoreServices.shotdow();
 	}
 
 }
