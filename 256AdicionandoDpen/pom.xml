@@ -9,9 +9,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
   <version>0.0.1-SNAPSHOT</version>
   
  
-  
+  <!-- dependencias : onde se add todas as dependencia-->
   <dependencies>
+	 
 	  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<!-- dependencia do banco de dados mysql com versao especificada -->
 	<dependency>
 	    <groupId>mysql</groupId>
 	    <artifactId>mysql-connector-java</artifactId>
