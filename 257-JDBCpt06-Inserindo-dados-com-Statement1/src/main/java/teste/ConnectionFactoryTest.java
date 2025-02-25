@@ -6,12 +6,19 @@ package teste;
  * */
 import com.ConnectionFactory;
 
+import dominio.Producer;
+import repository.ProducerRepository;
+
 public class ConnectionFactoryTest {
-
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		
-		System.out.println(ConnectionFactory.getConnection());
+		
+	 Producer a = new Producer.Builder()
+			 .name("gass")
+			 .builder();
+	 
+	 	ProducerRepository.save(a);
+	 
 	}
-
 }
 //conectado
