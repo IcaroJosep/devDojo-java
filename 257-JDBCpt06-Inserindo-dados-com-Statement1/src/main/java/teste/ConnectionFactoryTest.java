@@ -14,11 +14,12 @@ public class ConnectionFactoryTest {
 		
 		
 	 Producer a = new Producer.Builder()
-			 .name("gass")
+			 .name("josedp")
 			 .builder();
 	 
 	 	ProducerRepository.save(a);
-	 
+	 	
+	 System.out.println("fim");
 	}
 }
 //conectado
