@@ -2,12 +2,6 @@ package dominio;
 
 import lombok.*;
 
-
-
-/*lonbok é uma biblioteca q altomatiza a riaçao de metodos ect..
- * indroduzino nas dependencias no arqv : pom.xml.
- *usso dele a abaixo */
-
 @Value
 @Builder 
 

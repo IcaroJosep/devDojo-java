@@ -10,8 +10,9 @@ public class ConnectionFactoryTest {
 	Producer a = Producer.builder().name("rfdqqqf").build();
 	 
 	 	ProducerRepository.save(a);
-	 	
+	 
+	 
 	 System.out.println("fim");
 	}
 }
-//conectado
+//nesta aula foi introduzido lombok no arqv "producer"
