@@ -1,5 +1,7 @@
 package services;
 
+import java.util.List;
+
 import dominio.Producer;
 import repository.ProducerRepository;
 
@@ -18,6 +20,10 @@ public class ProducerServices {
 	
 	public static void update(int id, String name) {
 		ProducerRepository.update(id,name);
+	}
+	 
+	public static List<Producer> findAll() {
+		return ProducerRepository.findAll();
 	}
 	
 }

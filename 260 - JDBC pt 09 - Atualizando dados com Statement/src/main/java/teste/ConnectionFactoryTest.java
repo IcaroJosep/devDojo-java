@@ -1,5 +1,8 @@
 package teste;
-import dominio.Producer;
+
+
+
+
 import services.ProducerServices;
 
 public class ConnectionFactoryTest {
@@ -11,8 +14,13 @@ public class ConnectionFactoryTest {
 		 */
 		//ProducerServices.delet(5);
 		
-		ProducerServices.update(28,"machado");
+		//ProducerServices.update(28,"machado");
 		
-	 System.out.println("fim");
+		
+		
+		System.out.println(ProducerServices.findAll());
+		
+		
+		System.out.println("fim");
 	}
 }
