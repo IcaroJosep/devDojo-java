@@ -3,12 +3,13 @@ package teste;
 
 
 
+import dominio.Producer;
 import services.ProducerServices;
 
 public class ConnectionFactoryTest {
 	public static void main(String[] args) {	
 			
-		/*Producer a = Producer.builder().name("josep").build();
+		/*Producer a = Producer.builder().name("kome ku").build();
 		 
 		 	ProducerServices.save(a);
 		 */
@@ -18,7 +19,9 @@ public class ConnectionFactoryTest {
 		
 		
 		
-		System.out.println(ProducerServices.findAll());
+		//System.out.println(ProducerServices.findAll());
+		
+		System.out.println(ProducerServices.findByName("k"));
 		
 		
 		System.out.println("fim");

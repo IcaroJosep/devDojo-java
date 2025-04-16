@@ -51,30 +51,6 @@ public class ProducerRepository {
 		}
 	}
 	
-	public static List<Producer> findAll() {
-		log.info("buscando todos os Producers");
-		String sql = "SELECT id ,name FROM anime_store.producer;";
-		List<Producer> producers = new ArrayList<>();
-
-		try(Connection con = ConnectionFactory.getConnection();
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(sql)){//rersultset: é outra biblioteca diferente de "statment" o comando esta sendo executado dentro dos parametros para q seja fechado altomaticamentem assim como os demais
-												   //ele é criado apartir de um stetemant
-			
-			while (rs.next()) {//chama o procimo dado
-				int id = rs.getInt("id");//a lib ResultSet permite capiturar direto do banco camando pelo nome ou coluna
-				String name = rs.getString("name");
-				producers.add(Producer.builder().id(id).name(name).build()); 
-			
-			}
-		} catch (SQLException e) {
-			log.error("Erro na busca de de 'todos os produces' ",e);
-			e.printStackTrace();
-		}
-		return producers;
-	}
-	
-	
 	public static void update(int id , String name) {
 		String sql = "UPDATE `anime_store`.`producer` SET `name` = '%s' WHERE (`id` = %d);".formatted(name,id);
 		
@@ -90,6 +66,59 @@ public class ProducerRepository {
 			e.printStackTrace();
 		}
 	}
+	
+	public static List<Producer> findAll() {
+		log.info("buscando todos os Producers");
+		String sql = "SELECT id ,name FROM anime_store.producer;";
+		List<Producer> producers = new ArrayList<>();
+
+		try(Connection con = ConnectionFactory.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)){//rersultset: ï¿½ outra biblioteca diferente de "statment" o comando esta sendo executado dentro dos parametros para q seja fechado altomaticamentem assim como os demais
+												   //ele ï¿½ criado apartir de um stetemant
+			
+			while (rs.next()) {//chama o procimo dado
+				int id = rs.getInt("id");//a lib ResultSet permite capiturar direto do banco camando pelo nome ou coluna
+				String name = rs.getString("name");
+				producers.add(Producer.builder().id(id).name(name).build()); 
+			
+			}
+		} catch (SQLException e) {
+			log.error("Erro na busca de de 'todos os produces' ",e);
+			e.printStackTrace();
+		}
+		return producers;
+	}
+	
+	public static List<Producer> findByName(String name) {
+		log.info("buscando por '%s' em Producers".formatted(name));
+		String sql = "SELECT * FROM anime_store.producer where name like '%%%s%%';".formatted(name);
+		List<Producer> producers = new ArrayList<>();
+
+		try(Connection con = ConnectionFactory.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)){//rersultset: ï¿½ outra biblioteca diferente de "statment" o comando esta sendo executado dentro dos parametros para q seja fechado altomaticamentem assim como os demais
+												   //ele ï¿½ criado apartir de um stetemant
+			
+			while (rs.next()) {//chama o procimo dado
+				//int id = rs.getInt("id");//a lib ResultSet permite capiturar direto do banco camando pelo nome ou coluna
+				//String name1 = rs.getString("name");
+				//producers.add(Producer.builder().id(id).name(name1).build()); 
+				producers.add(
+						Producer.builder()
+						.id(rs.getInt("id"))
+						.name(rs.getString("name"))
+						.build()
+						);
+			}
+		} catch (SQLException e) {
+			log.error("Erro na busca de de 'todos os produces' ",e);
+			
+		}
+		return producers;
+	}
+	
+	
 	
 	
 	
