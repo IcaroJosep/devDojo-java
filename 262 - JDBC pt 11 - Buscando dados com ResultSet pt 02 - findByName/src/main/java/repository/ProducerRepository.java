@@ -68,7 +68,7 @@ public class ProducerRepository {
 	}
 	
 	public static List<Producer> findAll() {
-		log.info("buscando todos os Producers");
+	/* log.info("buscando todos os Producers");
 		String sql = "SELECT id ,name FROM anime_store.producer;";
 		List<Producer> producers = new ArrayList<>();
 
@@ -88,10 +88,17 @@ public class ProducerRepository {
 			e.printStackTrace();
 		}
 		return producers;
+	*/
+		return findByName("");
 	}
 	
 	public static List<Producer> findByName(String name) {
-		log.info("buscando por '%s' em Producers".formatted(name));
+		if (name!="") {
+			log.info("buscando por '%s' em Producers".formatted(name));
+		}else {
+			log.info("buscando todos os Producers");
+		}
+		
 		String sql = "SELECT * FROM anime_store.producer where name like '%%%s%%';".formatted(name);
 		List<Producer> producers = new ArrayList<>();
 
