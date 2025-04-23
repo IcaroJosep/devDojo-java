@@ -70,3 +70,8 @@ public class ConnectionFactoryTest {
 		System.out.println("fim");
 	}
 }
+/*obs:      	 Termo	     							Significado
+			Banco de dados				Onde os dados estão armazenados (MySQL, PostgreSQL, etc)
+			Driver JDBC					Biblioteca que conecta o Java ao banco. Faz a "tradução"
+			DatabaseMetaData			Interface para pegar informações sobre o banco e o driver
+			Connection					Representa a conexão aberta com o banco, via o driver*/
