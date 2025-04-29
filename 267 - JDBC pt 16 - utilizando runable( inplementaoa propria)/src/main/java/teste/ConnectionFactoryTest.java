@@ -36,7 +36,7 @@ public class ConnectionFactoryTest {
 		
 		//ProducerServices.findByNameAndUpdateUpperLowCase("sasuke",false);
 		
-		ProducerServices.findByNameAndIncertWhenNotFound("ka");
+		ProducerServices.findByNameAndIncertWhenNotFound("caracu");
 		System.out.println("fim");
 	}
 }

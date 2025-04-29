@@ -317,21 +317,56 @@ public class ProducerRepository {
 					ResultSet.CONCUR_UPDATABLE );
 			ResultSet rs = stmt.executeQuery(sql)){
 			
-				if (!rs.next()) {
-					rs.moveToInsertRow();
-					rs.updateString("name", name);
-					rs.insertRow();
-					rs.next();
-					log.info("id: {} - name: {} --incerido em producer \n",rs.getInt("id"),rs.getString("name"));
-					producers.add(Producer.builder().id(rs.getInt("id")).name(rs.getString("name")).build());
-				}else {
-					log.info("nomes corespondentes: ");
-					do {
-						System.out.printf("ID:%d NOME:%s\n",rs.getInt("id"),rs.getString("name"));
-						producers.add(Producer.builder().id(rs.getInt("id")).name(rs.getString("name")).build());
-					}while(rs.next());
-				}
+			while (rs.next()) {
 				
+					producers.add(
+							Producer.builder()
+							.id(rs.getInt("id"))
+							.name(rs.getString("name"))
+							.build()
+							);
+			
+			}
+			
+			Runnable r = new Runnable() {
+					public void run() {
+						try {rs.last();
+							rs.moveToInsertRow();
+							rs.updateString("name",name);
+							rs.insertRow();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}finally {
+							log.info("'{}'incerido em producer",name);
+						}
+						
+					}
+				};
+			
+			
+			if (producers.size()==0) {
+				r.run();
+			}else {
+				log.info("corespondentes localizados '{}'",producers);
+				Scanner scn = new Scanner(System.in);
+				System.out.printf("1 para finalizar pesquina \n2 para incerir %s nem producers",name);
+				int slect;
+				do {
+					slect=scn.nextInt();
+				} while (slect!=1&&slect!=2);
+				scn.close();
+				
+				switch (slect) {
+				case 1:
+					log.info("pesquisa finalizada");
+					break;
+				case 2:
+					r.run();
+					break;	
+
+				}
+			}
 			
 		} catch (SQLException e) {
 			log.error("Erro na busca de de 'todos os produces' ",e);
