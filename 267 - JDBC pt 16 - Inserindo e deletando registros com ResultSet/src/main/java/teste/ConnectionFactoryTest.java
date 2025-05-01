@@ -2,10 +2,13 @@ package teste;
 
 import dominio.Producer;
 import services.ProducerServices;
-/*nesta aula a a esploracao do TYPE SCROLL INSENSITIVE
- * com leituras de cima pra baixo ,baixo pra cima e posiçao expecitca etc.. 
+/*nesta aula a a esploracao do TYPE SCROLL INSENSITIVE e CONCUR_UPDATABLE
  * 
- * #atribuço de novo metodo em ProducerRepository "shoTipeScrollWorcking"
+ * para incrementar e deletar da tabela producer "banco de dados"
+ * diretamente pelo resultset ou seja sem a nesecidade de um segundo sql
+ * 
+ * #atribuço de novo metodo em ProducerRepository 
+ * "FindByNameDelet" e "findByNameAndIncertWhenNotFound".
  * 
  * 
  * */
@@ -36,7 +39,10 @@ public class ConnectionFactoryTest {
 		
 		//ProducerServices.findByNameAndUpdateUpperLowCase("sasuke",false);
 		
-		ProducerServices.findByNameAndIncertWhenNotFound("ka");
+	//	ProducerServices.findByNameAndIncertWhenNotFound("ka");
+	//	ProducerServices.delet("mi");//deletad todos cuidado
+		
+		
 		System.out.println("fim");
 	}
 }

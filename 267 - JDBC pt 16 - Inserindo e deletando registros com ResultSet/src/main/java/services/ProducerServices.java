@@ -48,5 +48,10 @@ public class ProducerServices {
 		System.out.println(ProducerRepository.findByNameAndIncertWhenNotFound(name));
 	}
 	
+	public static void delet(String name) {
+		System.out.printf("deletados: %s\n",ProducerRepository.FindByNameDelet(name));
+	}
+	
+	
 	
 }

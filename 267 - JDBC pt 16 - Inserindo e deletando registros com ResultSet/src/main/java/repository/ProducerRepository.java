@@ -340,6 +340,37 @@ public class ProducerRepository {
 		return producers;
 	}
 	
+	public static boolean FindByNameDelet(String name) {
 		
+		String sql = "SELECT * FROM anime_store.producer where name like '%%%s%%';".formatted(name);
+		
+
+		try(Connection con = ConnectionFactory.getConnection();
+			Statement stmt = con.createStatement(
+					ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE );
+			ResultSet rs = stmt.executeQuery(sql)){
+			
+			if (!rs.next()) {
+				log.info("sem corespondencia");
+				return false;
+			}
+			
+			log.info("corespondentes");
+			//deletar todos
+			rs.first();
+			do {
+				System.out.printf("id : %d -- name : %s\n",rs.getInt("id"),rs.getString("name"));
+				rs.deleteRow();//deleção
+			} while (rs.next());
+			
+		} catch (SQLException e) {
+			log.error("3' ",e);
+		}
+		return true;		
+	}
+		
+	
+	
 	
 }
