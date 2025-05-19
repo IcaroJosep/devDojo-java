@@ -379,11 +379,11 @@ public class ProducerRepository {
 	public static List<Producer> findByNamePreperdStetement(String name) {
 			log.info("buscando por '%s' em Producers".formatted(name));
 		
-		String sql = "SELECT * FROM anime_store.producer where name like ?;";
+	
 		List<Producer> producers = new ArrayList<>();
 
 		try(Connection con = ConnectionFactory.getConnection();
-			PreparedStatement ps = prepareStatman(sql, con, name);//esta! foi extraido pos nao é posiveu zaser a operaçao dentro de parametro
+			PreparedStatement ps = prepareStatman( con, name);//esta! foi extraido pos nao é posiveu zaser a operaçao dentro de parametro
 			ResultSet rs = ps.executeQuery()){					 //sem a estraçao seria nesesariro fazer a atribuiça de resutset com uma try-cach aninhado 
 			
 			while (rs.next()) {
@@ -400,7 +400,8 @@ public class ProducerRepository {
 		return producers;
 	}
 	//classe acoplada a findByNamePreperdStetement:estraçao de complexidade
-	private static PreparedStatement prepareStatman(String sql, Connection con,String name) throws SQLException {
+	private static PreparedStatement prepareStatman(Connection con,String name) throws SQLException {
+		String sql = "SELECT * FROM anime_store.producer where name like ?;";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, name); 
 		return ps;
