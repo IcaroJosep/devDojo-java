@@ -379,11 +379,11 @@ public class ProducerRepository {
 	public static List<Producer> findByNamePreperdStetement(String name) {
 			log.info("buscando por '%s' em Producers".formatted(name));
 		
-		String sql = "SELECT * FROM anime_store.producer where name like ?;";
+		
 		List<Producer> producers = new ArrayList<>();
 
 		try(Connection con = ConnectionFactory.getConnection();
-			PreparedStatement ps = prepareStatman(sql, con, name);//esta! foi extraido pos nao é posiveu zaser a operaçao dentro de parametro
+			PreparedStatement ps = prepardStatmanfindByName(con, name);//esta! foi extraido pos nao é posiveu zaser a operaçao dentro de parametro
 			ResultSet rs = ps.executeQuery()){					 //sem a estraçao seria nesesariro fazer a atribuiça de resutset com uma try-cach aninhado 
 			
 			while (rs.next()) {
@@ -400,11 +400,35 @@ public class ProducerRepository {
 		return producers;
 	}
 	//classe acoplada a findByNamePreperdStetement:estraçao de complexidade
-	private static PreparedStatement prepareStatman(String sql, Connection con,String name) throws SQLException {
+	private static PreparedStatement prepardStatmanfindByName(Connection con,String name) throws SQLException {
+		String sql = "SELECT * FROM anime_store.producer where name like ?;";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, name); 
 		return ps;
 	} 
+	
+	public static void updatePrepardStatman(Producer producer) {
+		
+		try(Connection con = ConnectionFactory.getConnection();
+			PreparedStatement ps = prepardStatmenUpdade(con,producer);
+				){
+			
+				int rowsAffected = ps.executeUpdate();
+				log.info("linhas afetadas '{}' id: '{}' teve seu name alterado para '{}'",rowsAffected,producer.getId(),producer.getName());
+				
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	//classe acoplada a findByNamePreperdStetement:estraçao de complexidade
+	private static PreparedStatement prepardStatmenUpdade(Connection con, Producer producer) throws SQLException {
+		String sql = "UPDATE `anime_store`.`producer` SET `name` = ? WHERE (`id` = ?);";
+		PreparedStatement ps =con.prepareStatement(sql);
+		ps.setString(1,producer.getName());
+		ps.setInt(2,producer.getId());
+		return ps;
+	}
 		
 		
 	
