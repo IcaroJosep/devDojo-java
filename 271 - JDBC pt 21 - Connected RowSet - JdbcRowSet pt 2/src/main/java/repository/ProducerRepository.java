@@ -13,7 +13,7 @@ import com.ConnectionFactory;
 
 
 import dominio.Producer;
-
+import listiner.CustomRowSetLitener;
 import lombok.extern.log4j.Log4j2;
 
 
@@ -25,6 +25,7 @@ import lombok.extern.log4j.Log4j2;
 			String sql = "SELECT * FROM anime_store.producer where name like ?;";
 			List<Producer> producers = 	new ArrayList<Producer>();
 			try (JdbcRowSet jrs = ConnectionFactory.getJdbcRowSet()){
+				jrs.addRowSetListener(new CustomRowSetLitener());
 				jrs.setCommand(sql);
 				jrs.setString(1, String.format("%%%s%%", name));
 				jrs.execute();
@@ -49,6 +50,7 @@ import lombok.extern.log4j.Log4j2;
 			String sql = "SELECT * FROM anime_store.producer WHERE (`id` = ?);";
 			
 			try (JdbcRowSet jrs = ConnectionFactory.getJdbcRowSet()){
+				jrs.addRowSetListener(new CustomRowSetLitener());
 				jrs.setCommand(sql);
 				jrs.setInt(1, producer.getId());
 				jrs.execute();

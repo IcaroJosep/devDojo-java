@@ -13,16 +13,9 @@ public class ProducerServices {
 		return ProducerRepository.findByName(name);
 	}
 	
-	public static void update(Producer producer,String newName) {
-		ProducerRepository.Update(producer, newName);
+	public static void update(String name,String newName) {               
+		ProducerRepository.Update(findByNameJdbcRowSet (name).getFirst(), newName);
 	}
-	
-	public static Producer PreUp (String name) {
-		List<Producer> producers = findByNameJdbcRowSet (name);
-		Producer p = producers.getFirst();
-		return p;
-	}
-	
 	
 	
 }
