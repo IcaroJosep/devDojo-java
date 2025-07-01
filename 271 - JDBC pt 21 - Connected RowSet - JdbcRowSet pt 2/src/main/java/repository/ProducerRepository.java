@@ -50,11 +50,14 @@ import lombok.extern.log4j.Log4j2;
 			String sql = "SELECT * FROM anime_store.producer WHERE (`id` = ?);";
 			
 			try (JdbcRowSet jrs = ConnectionFactory.getJdbcRowSet()){
-				jrs.addRowSetListener(new CustomRowSetLitener());
+				jrs.addRowSetListener(new CustomRowSetLitener());//adiçao de listiner a rowSet
+				//captura dados
 				jrs.setCommand(sql);
 				jrs.setInt(1, producer.getId());
 				jrs.execute();
+				//se nao ouver dados da o retorno
 				if(!jrs.next())return;
+				//pega o primeiro dados (producer) capturado e o altera .
 				jrs.updateString("name",newName);
 				jrs.updateRow();	
 				
