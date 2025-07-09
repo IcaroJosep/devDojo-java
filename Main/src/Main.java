@@ -19,47 +19,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		ExecutorService executor = Executors.newSingleThreadExecutor(); 
-		Future<Double> a1 = executor.submit(a);
 		
-		
-		new Thread(() -> {
-	        int p =0;
-	        do {
-	        	p++;
-	        	try {
-					TimeUnit.SECONDS.sleep(3);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				System.out.printf("carregando %s\n",p);
-			} while (!a1.isDone());
-	        try {
-				System.out.println(a1.get(10,TimeUnit.SECONDS));
-			} catch (TimeoutException | InterruptedException | ExecutionException e) {
-						e.printStackTrace();
-			}finally {	
-				System.out.println("fim Executor ");
-				executor.shutdown();
-			}	
-				
-	    }).start();
-		
-		
-		
-		for (int i = 0; i < 10; i++) {
-			try {
-				TimeUnit.SECONDS.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			System.out.println(i);
-		}
-		
-		
+		System.out.println(cus.out());
+		System.out.println(cus.out());
+		System.out.println(cus.out());
+		//f6 f5 ctrl+shift+i		
 		
 	}
 }
