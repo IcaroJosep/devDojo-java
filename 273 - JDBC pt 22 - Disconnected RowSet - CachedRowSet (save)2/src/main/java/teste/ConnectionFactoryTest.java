@@ -5,7 +5,7 @@ import java.util.List;
 
 import dominio.Producer;
 import lombok.extern.log4j.Log4j2;
-import services.ProducerServices;
+import services.ProducerService;
 /*nesta aula veremos  como fazer par atualizar um campo utilisando 
  * o msm row set "JdbcRowSet"
  * implementaçoes:
@@ -21,18 +21,18 @@ import services.ProducerServices;
 
 @Log4j2
 public class ConnectionFactoryTest {
-	public static void main(String[] args) {	
-		
-		//System.out.println(ProducerServices.findByNameJdbcRowSet("kacarot"));
-		
-		
-			// procura todosos producer q corepondao a o primeiro parametro e 
-			// modifica o nome do primeiro producer encontrad para o segundo parametro
-		ProducerServices.update("kacaroto","kalamar");
-		
-		List<Producer> producers = ProducerServices.findByNameJdbcRowSet("");
-		log.info(producers);
-	
-		System.out.println("fim");
-	}
+	public static void main(String[] args) {
+        ProducerService producerService = new ProducerService();
+        
+        // Listar producers antes da atualização
+        System.out.println("ANTES DA ATUALIZAÇÃO:");
+        producerService.listAllProducers();
+        
+        System.out.println("\n" + "=".repeat(50) + "\n");
+        
+        // Atualizar o producer com ID 1 para o nome "Studio Ghibli Updated"
+        producerService.producerServicesUpdate(2, "asd");
+        
+       
+    }
 }
