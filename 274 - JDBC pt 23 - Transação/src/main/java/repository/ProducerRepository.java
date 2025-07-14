@@ -49,7 +49,7 @@ public  class ProducerRepository {
 			}
 			if(rollback) {
 				conn.rollback();//desfas as alteraçoes feitas 
-				throw new SQLException();//lança a eceçao para o proximo metodo
+				throw new SQLException();//lança a exeçao para o proximo metodo
 			}
 		}
 		
