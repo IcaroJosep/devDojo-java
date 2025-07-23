@@ -29,7 +29,7 @@ public class ConnectionFactoryTest {
 					String usser=scn.nextLine();
 					System.out.println("senha:");
 					String senha=scn.nextLine();
-					Connection conn = ProducerServices.Conecao(usser,senha);
+					Connection conn = ProducerServices.conecao(usser,senha);
 					
 					new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 					System.out.println("conecao com: suceso");
@@ -41,7 +41,7 @@ public class ConnectionFactoryTest {
 							op=scn.nextInt();
 							switch (op) {
 								case 1:
-									 ProducerServices.ListaProducer(conn);
+									 ProducerServices.listaProducer(conn,scn,op);
 									break;
 								case 2:
 									ProducerServices.adicionaProducer(conn,scn);

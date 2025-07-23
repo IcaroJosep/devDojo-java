@@ -34,7 +34,7 @@ public class ConnectionFactoryTest {
 		
 		//ProducerServices.showProducerMetadata();
 		
-		//ProducerServices.showDriverMetadata();	
+		ProducerServices.showDriverMetadata();	
 		
 	    //ProducerServices.showTipeScrollWorcking();
 		
@@ -44,7 +44,7 @@ public class ConnectionFactoryTest {
 	
 		//ProducerServices.findByNamePreperdStetement("sasuke"); 
 		
-		ProducerServices.updatePrepardStatman(Producer.builder().id(12).name("kacaroto").build());
+		//ProducerServices.updatePrepardStatman(Producer.builder().id(12).name("kacaroto").build());
 		System.out.println("fim");
 	}
 }
