@@ -7,6 +7,8 @@ import java.util.Scanner;
 import lombok.extern.log4j.Log4j2;
 import services.ProducerServices;
 
+/*implementaçao propria */
+
 
 @Log4j2
 public class ConnectionFactoryTest {

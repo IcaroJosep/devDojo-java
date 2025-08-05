@@ -11,11 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-import com.ConnectionFactory;
-import com.Usser;
 
 import dominio.Producer;
 import lombok.extern.log4j.Log4j2;
