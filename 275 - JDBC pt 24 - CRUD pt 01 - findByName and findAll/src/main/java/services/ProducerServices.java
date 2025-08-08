@@ -13,24 +13,28 @@ public class ProducerServices {
 	private static final Scanner SCANNER = new Scanner(System.in);
 	
 	public static void menu(int op) {
+	
 		switch (op) {
-		case 1:
-			findByName();
-			break;
-		case 2 :
-			delete();
-			break;
-		case 3 :
-			save();
-			break;
-		case 4 :
-			update();
-			break;
-
-		default:
-			throw new IllegalArgumentException("not a valid option");
+			case 1:
+				findByName();
+				break;
+			case 2 :
+				delete();
+				break;
+			case 3 :
+				save();
+				break;
+			case 4 :
+				update();
+				break;
+			case 0 :
+				break;
+	
+			default:
+				throw new IllegalArgumentException("not a valid option");
 			
 		}
+		
 		
 	}
 

@@ -81,7 +81,7 @@ public class AnimeRepository {
 	//####################################### END delete	####################################
 
 	//######################################## SAVE ############################################
-		
+		//obs : od de producer pode ser incerido sem relaçao com nenhum producer!!!!!
 		public static void save(Anime anime) {
 			log.info("salvando anime = '{}'",anime);
 			try (Connection conn = ConnectionFactory.getConnection();
@@ -94,8 +94,10 @@ public class AnimeRepository {
 		
 		
 		private static PreparedStatement createPreparedStatement(Connection conn, Anime anime) throws SQLException {
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO `anime_store`.`anime` (`name`) VALUES (?);");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO `anime_store`.`anime` (`name`, `episodes`, `producer_id`) VALUES (?, ?, ?);");
 				ps.setString(1,anime.getName());
+				ps.setInt(2,anime.getEpisodes());
+				ps.setInt(3,anime.getProducer().getId());
 			return ps;
 		}
 	//######################################## END SAVE ############################################	
@@ -103,7 +105,8 @@ public class AnimeRepository {
 	//####################################### UPDATE ###############################################
 		
 		public static void update(Anime anime) {
-			log.info("atualisando anime : {}",anime);
+			//so atualiza numero de ep's
+			log.info("atualisando ep's de anime : {}",anime);
 			try (Connection conn = ConnectionFactory.getConnection();
 				 PreparedStatement ps= creatPreparedStatementUpdate(conn,anime)){
 
@@ -118,8 +121,8 @@ public class AnimeRepository {
 
 		
 		private static PreparedStatement creatPreparedStatementUpdate(Connection conn, Anime anime) throws SQLException {
-			PreparedStatement ps = conn.prepareStatement("UPDATE `anime_store`.`anime` SET `name` = ? WHERE (`id` = ?);");
-			ps.setString(1, anime.getName());
+			PreparedStatement ps = conn.prepareStatement("UPDATE `anime_store`.`anime` SET `episodes` = ? WHERE (`id` = ?);");
+			ps.setInt(1, anime.getEpisodes());
 			ps.setInt(2, anime.getId());
 		return ps;
 		}
@@ -134,7 +137,11 @@ public class AnimeRepository {
 					
 					if(!rs.next())return Optional.empty();
 					
-					return Optional.of(Anime.builder().id(rs.getInt("id")).name(rs.getString("name")).build());
+					return Optional.of(Anime.builder()
+							.id(rs.getInt("id"))
+							.name(rs.getString("name"))
+							.producer(ProducerRepository.findByIdToUpdate(rs.getInt("producer_id")).orElse(null))
+							.build());
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
